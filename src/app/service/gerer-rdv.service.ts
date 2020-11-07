@@ -1,0 +1,16 @@
+import { Injectable } from '@angular/core';
+import { WebRequestService } from './web-request.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GererRdvService {
+
+  constructor(private webReqService: WebRequestService) { }
+  getListSecretaires() {
+    return this.webReqService.get('secretaires');
+  }
+  demanderRdv(idSecretaire: string, idpatients: string, data: object) {
+    return this.webReqService.post(`secretaires/affect-patients-to-secretaire/${idSecretaire}/${idpatients}`, data);
+  }
+}

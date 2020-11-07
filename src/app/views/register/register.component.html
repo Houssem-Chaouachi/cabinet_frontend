@@ -1,0 +1,199 @@
+<!-- <div class="app-body register">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <h1>Register</h1>
+              <form [formGroup]="registerPatient">
+                <p class="text-muted">
+                  Create your account
+                </p>
+                <mat-form-field class="full-width">
+                  <mat-label>Name</mat-label>
+
+                  <input
+                    matInput
+                    placeholder="Name"
+                    formControlName="name"
+                    required
+                  />
+                  <mat-error *ngIf="registerPatient.hasError('required','name')">
+                    Name is required
+                  </mat-error> </mat-form-field
+                ><br />
+                <mat-form-field class="full-width">
+                  <mat-label>Email</mat-label>
+
+                  <input
+                    matInput
+                    placeholder="email"
+                    formControlName="email"
+                    required
+                  />
+                  <mat-error *ngIf="registerPatient.hasError('required','email')">
+                    email is required
+                  </mat-error>
+                  <mat-error *ngIf="registerPatient.hasError('email','email')">
+                    email is invalid
+                  </mat-error> </mat-form-field
+                ><br />
+                <mat-form-field class="full-width">
+                  <mat-label>Password</mat-label>
+                  <input matInput type="password" placeholder="password" formControlName="password" [type]="hide ? 'password' : 'text'" required />
+                   <mat-icon matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                   </mat-icon>
+                  <mat-error *ngIf="registerPatient.hasError('required','password')">
+                    password is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="registerPatient.hasError('pattern','password')"
+                  >
+                    your pasword must have at least one letter
+                  </mat-error>
+                  <mat-error *ngIf="registerPatient.hasError('min','password')">
+                    your pasword must contain at least 8 character
+                  </mat-error>
+                </mat-form-field>
+              </form>
+            </div>
+            <button
+              [disabled]="!registerPatient.valid"
+              type="submit"
+              (click)="register()"
+              class="btn btn-block btn-success"
+            >
+              Create Account
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div> -->
+
+
+
+
+
+
+- <div class="app-body fixed">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card mx-4">
+            <div class="card-body p-4">
+              <form [formGroup]="registerPatient">
+                <h1>Register</h1>
+                <p class="text-muted">Create your account</p>
+                <div class="row">
+                <div class="input-group mb-3 col-md-6">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName='nom' placeholder="Nom" autocomplete="Nom" [ngClass]="{ 'is-invalid':form.nom.errors }" required>
+                  
+                  <div *ngIf="form.nom.errors?.required" class="invalid-feedback">First Name is required</div>
+                </div>
+               
+                <div class="input-group mb-3 col-md-6">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                  </div>
+                    <input type="text" class="form-control" formControlName='prenom' placeholder="Prenom" autocomplete="Prenom" [ngClass]= "{'is-invalid':form.prenom.errors } " required>
+                  <div *ngIf="form.prenom.errors?.required" class="invalid-feedback"> Prenom required</div>
+                </div>
+              </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-calendar"></i></span>
+                  </div>
+                  <input type="date" class="form-control" formControlName='dateDeNaissance' placeholder="Date de Naissance"
+                    autocomplete="Date de Naissance" [ngClass]="{'is-invalid': form.dateDeNaissance.errors} " required>
+                    <div *ngIf = "form.dateDeNaissance.errors?.required" class="invalid-feedback"> Date de Naissance </div>
+                  </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-home"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName='adresse' [ngClass]="{'is-invalid': form.adresse.errors}" placeholder="Adresse" autocomplete="Adresse" required>
+                <div *ngIf="form.adresse.errors?.required" class="invalid-feedback"> Adresse required</div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-people"></i></span>
+                </div>
+                  <select formControlName="sexe" class="form-control" [ngClass]="{ 'is-invalid':  form.sexe.errors }">
+                      <option value="">Sexe</option>
+                      <option value="Homme">Homme</option>
+                      <option value="Femme">Femme</option>           
+                  </select>
+                  <div *ngIf="form.sexe.errors" class="invalid-feedback"> Sexe required </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-phone"></i></span>
+                </div>
+                <input type="tel" class="form-control" formControlName='tel' [ngClass]="{'is-invalid': form.tel.errors } " placeholder="Télephone" autocomplete="Numéro Télephone"
+                required>
+                <div *ngIf="form.tel.errors" class="invalid-feedback">
+                <div *ngIf="form.tel.errors?.required" > phone Number is required </div>
+                <div *ngIf="form.tel.errors?.minlength" > Chceck your phone Number please</div>
+                <div *ngIf="form.tel.errors?.maxlength" > Check your phone Number please</div>               
+                <div *ngIf="form.tel.errors?.pattern" > Only Number Please</div>               
+              </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">CNSS</span>
+                </div>
+                <input type="number" class="form-control"  placeholder="Numero CNSS" autocomplete="Numéro CNSS"
+                >
+              </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input type="text" class="form-control" formControlName='email' [ngClass]="{'is-invalid': form.email.errors } " placeholder="Email" autocomplete="email" required>
+              <div *ngIf="form.email.errors" class="invalid-feedback">
+                <div *ngIf="form.email.errors?.required"> E-mail is required</div>
+                <div *ngIf="form.email.errors?.email"> Check Your E-mail </div>
+              </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password" class="form-control" formControlName='password' [ngClass]="{'is-invalid': form.password.errors } " placeholder="Password" autocomplete="new-password"
+                  required>
+                  <div *ngIf="form.password.errors" class="invalid-feedback" >
+                  <div *ngIf="form.password.errors?.required">Password required </div>
+                  <div *ngIf="form.password.errors?.minlength">Password is weak </div>
+                </div>
+                </div>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                  </div>
+                  <input type="password" class="form-control" formControlName='confirmPassword' [ngClass]="{'is-invalid': form.confirmPassword.errors} " placeholder="Repeat password" autocomplete="new-password"
+                  required>
+                  <div *ngIf="form.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="form.confirmPassword.errors?.required" > confirm Your password </div>
+                    <div *ngIf="form.confirmPassword.errors.mustMatch" > password invalid </div>
+                  </div>
+                </div>
+               
+                <button type="button" class="btn btn-block btn-success" (click)= "register()" [disabled]= registerPatient.invalid >Create Account</button>
+                <button type="button" class="btn btn-block btn-primary" [routerLink]="('/login-Patients')">Login</button>
+              </form>
+            </div>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
