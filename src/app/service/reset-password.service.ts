@@ -14,10 +14,10 @@ export class ResetPasswordService {
   }
 
   newPassword(body): Observable<any> {
-    return this.webReqService.post('/email/new-password', body);
+    return this.webReqService.post('email/new-password', body);
   }
 
   ValidPasswordToken(body): Observable <any> {
-  return this.webReqService.post('/email/valid-password-token', body);
+  return this.webReqService.post('email/valid-password-token', body);
   }
 }

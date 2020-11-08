@@ -24,13 +24,14 @@ export class ResetPasswordComponent implements OnInit {
       this.CurrentState = 'Wait';
       this.route.params.subscribe(params => {
         this.resetToken = params.token;
-        console.log(this.resetToken);
+
         this.VerifyToken();
      }
       ); }
 
   ngOnInit(): void {
      this.Init();
+
   }
   Init() {
     this.ResponseResetForm = this.fb.group(
@@ -40,6 +41,8 @@ export class ResetPasswordComponent implements OnInit {
         confirmPassword: ['', [Validators.required, Validators.minLength(8)]]
       }
     );
+    console.log(this.ResponseResetForm.controls.resettoken);
+
   }
   VerifyToken() {
     this.reset.ValidPasswordToken({ resettoken: this.resetToken }).subscribe(

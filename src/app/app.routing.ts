@@ -32,10 +32,10 @@ export const routes: Routes = [
     path: 'response-reset-password/:token',
     component: ResetPasswordComponent,
   },
-  // {
-  //   path: 'response-reset-password',
-  //   component: ResetPasswordComponent,
-  // },
+  {
+    path: 'response-reset-password',
+    component: ResetPasswordComponent,
+  },
   {
     path: '404',
     component: P404Component,
