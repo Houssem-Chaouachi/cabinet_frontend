@@ -40,8 +40,11 @@ export class LoginPatientsComponent implements OnInit {
       (res: any) => {
         console.log(res.id);
         localStorage.setItem('abcd', res.message);
-        this.router.navigateByUrl(`/dashboard/${res.id}/secretaires`);
+        this.router.navigateByUrl(`/dashboard/${res.id}`);
          this.idpatients = res.id;
+         if (!res.id) {
+          localStorage.removeItem('abcd')
+         }
         });
   }
 }

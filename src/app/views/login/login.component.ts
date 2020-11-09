@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(private formbuilder: FormBuilder, private auth: AuthService, private router: Router) { }
 
 
- ngOnInit() {
+ ngOnInit () {
     this.loginSecretaires = this.formbuilder.group({
       email: ['', [Validators.required && Validators.email]],
       password: ['', [Validators.required && Validators.minLength(8)]]
@@ -32,17 +32,18 @@ export class LoginComponent {
     if (this.loginSecretaires.invalid) {
       return;
     }
-    {
-      alert ('success!! :-)\n\n' + JSON.stringify(this.loginSecretaires.value, null, 4));
-
-    }
   }
   login() {
     this.auth.loginSecretaires(this.loginSecretaires.value).subscribe((res:any) => {
 
           localStorage.setItem('efgh', res.message);
         this.router.navigateByUrl('/secretaire/demande-rdv');
-      }
+
+if (!res.id) {
+  localStorage.removeItem('efgh');
+}
+}
+
     );
   }
 }

@@ -70,8 +70,6 @@ export class ResetPasswordComponent implements OnInit {
 
     return null;
   }
-
-
   ResetPassword(form) {
     console.log(form.get('confirmPassword'));
     if (form.valid) {

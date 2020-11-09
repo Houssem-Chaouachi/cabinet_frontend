@@ -380,7 +380,7 @@ export class DashboardComponent implements OnInit {
 
 listeSecretaires: any[];
 _idSecretaires;
-decoded = jwt_decode;
+// decoded = jwt_decode;
 constructor(private gérerRv: GererRdvService, private auth: AuthService,
   private router: Router, private _activatedroute: ActivatedRoute) {}
 
@@ -388,7 +388,6 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
     this._activatedroute.params.subscribe((paramsP: Params) => {
       this._idSecretaires = paramsP;
       console.log( 'yo', paramsP);
-      console.log('decode', this.decoded);
 
     });
     // generate random values for mainChart
@@ -398,9 +397,10 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
       console.log('secretaires:', this.listeSecretaires);
     });
     }
-    demandeRdv(idSecretaire, data) {
-      this.gérerRv.demanderRdv(idSecretaire, this._idSecretaires, data).subscribe(
-        (res: any) => {
-        console.log('Hi', res.id);
-      });
-    }}
+    // demandeRdv(idSecretaire, data) {
+    //   this.gérerRv.demanderRdv(idSecretaire, this._idSecretaires, data).subscribe(
+    //     (res: any) => {
+    //     console.log('Hi', res.id);
+    //   });
+    // }
+  }

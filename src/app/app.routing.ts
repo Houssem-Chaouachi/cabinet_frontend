@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { DefaultLayoutComponent } from './containers';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+// import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 import { P404Component } from './views/error/404.component';
@@ -18,7 +19,7 @@ import { RegisterComponent } from './views/register/register.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login-Patients',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
   {
@@ -30,10 +31,6 @@ export const routes: Routes = [
   },
   {
     path: 'response-reset-password/:token',
-    component: ResetPasswordComponent,
-  },
-  {
-    path: 'response-reset-password',
     component: ResetPasswordComponent,
   },
   {
@@ -80,11 +77,6 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard/:idsecretaire',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
-        path: 'dashboard/:idsecretaire/:idpatients',
         canActivate: [AuthGuard],
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
       },

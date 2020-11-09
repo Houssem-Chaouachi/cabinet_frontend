@@ -27,7 +27,7 @@ constructor(private auth: AuthService, private router: Router) {
     this.router.navigate(['/login-Patients']);
 
   }
-  logoutSecretaire(){
+  logoutSecretaire() {
     localStorage.removeItem('efgh');
     this.auth.logoutSecretaire();
     this.router.navigate(['/login-secretaires']);

@@ -4,4 +4,3 @@ export class Secretaires {
     _idsecretaire: string;
     _idpatients: string;
    }
-   
