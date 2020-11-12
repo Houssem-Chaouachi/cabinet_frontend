@@ -34,10 +34,11 @@ export class LoginComponent {
     }
   }
   login() {
-    this.auth.loginSecretaires(this.loginSecretaires.value).subscribe((res:any) => {
+    this.auth.loginSecretaires(this.loginSecretaires.value).subscribe((res: any) => {
 
           localStorage.setItem('efgh', res.message);
-        this.router.navigateByUrl('/secretaire/demande-rdv');
+        this.router.navigateByUrl(`/secretaire/demande-rdv/${res.id}`);
+        console.log(res.id);
 
 if (!res.id) {
   localStorage.removeItem('efgh');

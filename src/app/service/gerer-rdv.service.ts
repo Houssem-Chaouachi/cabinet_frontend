@@ -13,4 +13,7 @@ export class GererRdvService {
   demanderRdv(idSecretaire: string, idpatients: string, data: object) {
     return this.webReqService.post(`secretaires/affect-patients-to-secretaire/${idSecretaire}/${idpatients}`, data);
   }
+getpatients(id: string) {
+  return this.webReqService.get(`secretaires/${id}`);
+}
 }

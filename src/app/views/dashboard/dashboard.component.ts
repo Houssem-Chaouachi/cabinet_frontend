@@ -6,7 +6,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { GererRdvService } from '../../service/gerer-rdv.service';
 import { Secretaires } from '../../models/secretaires.model';
-import * as jwt_decode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -380,14 +380,16 @@ export class DashboardComponent implements OnInit {
 
 listeSecretaires: any[];
 _idSecretaires;
-// decoded = jwt_decode;
+
+
 constructor(private gérerRv: GererRdvService, private auth: AuthService,
   private router: Router, private _activatedroute: ActivatedRoute) {}
-
+ 
   ngOnInit(): void {
     this._activatedroute.params.subscribe((paramsP: Params) => {
       this._idSecretaires = paramsP;
       console.log( 'yo', paramsP);
+
 
     });
     // generate random values for mainChart
