@@ -96,7 +96,7 @@ export const routes: Routes = [
         loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
       },
       {
-        path: 'secretaire',
+        path: 'secretaire/:id',
         canActivate: [AuthSecretaireGuard],
         loadChildren: () => import('./secretaire/secretaire/secretaire.module').then(m => m.SecretaireModule)
       },

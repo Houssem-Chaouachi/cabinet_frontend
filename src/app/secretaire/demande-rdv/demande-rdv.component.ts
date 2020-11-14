@@ -10,15 +10,15 @@ import { GererRdvService } from '../../service/gerer-rdv.service';
 export class DemandeRdvComponent implements OnInit {
 email: String = 'houssem@gmail.com';
   constructor(private gérerRv: GererRdvService, private _activatedroute: ActivatedRoute) { }
-listeDemande: any ;
-_idSecretaire;
+listeDemande: any[];
+_idSecretaire: string;
   ngOnInit(): void {
-    this._activatedroute.params.subscribe((paramS: Params) => {
-      this._idSecretaire = '5fa05c223fe0bb412c0d5038';
-      console.log( 'haha', paramS);
+    // this._activatedroute.params.subscribe((paramS: Params) => {
+      this._idSecretaire = this._activatedroute.snapshot.paramMap.get('id');
+      // console.log( 'haha', paramS);
      console.log('idSec', this._idSecretaire);
 
-    });
+    // });
       this.gérerRv.getpatients(this._idSecretaire).subscribe((liste: any[]) => {
         this.listeDemande = liste;
         console.log('patientsloooooo:', this.listeDemande);

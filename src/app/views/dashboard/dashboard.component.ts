@@ -384,7 +384,7 @@ _idSecretaires;
 
 constructor(private gérerRv: GererRdvService, private auth: AuthService,
   private router: Router, private _activatedroute: ActivatedRoute) {}
- 
+
   ngOnInit(): void {
     this._activatedroute.params.subscribe((paramsP: Params) => {
       this._idSecretaires = paramsP;

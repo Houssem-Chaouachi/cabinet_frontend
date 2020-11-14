@@ -4,11 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { SecretaireRoutingModule } from '../secretaire-routing/secretaire-routing.module';
 import { ListeRdvComponent } from '../liste-rdv/liste-rdv.component';
 import { DemandeRdvComponent } from '../demande-rdv/demande-rdv.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
 @NgModule({
-  imports: [ SecretaireRoutingModule ],
+  imports: [ 
+    SecretaireRoutingModule,
+    FormsModule,
+    CommonModule,
+   ],
   declarations: [
     ListeRdvComponent,
     DemandeRdvComponent
