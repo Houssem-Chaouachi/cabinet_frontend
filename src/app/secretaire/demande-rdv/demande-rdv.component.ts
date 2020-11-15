@@ -9,6 +9,7 @@ import { GererRdvService } from '../../service/gerer-rdv.service';
 })
 export class DemandeRdvComponent implements OnInit {
 email: String = 'houssem@gmail.com';
+index: number;
   constructor(private gérerRv: GererRdvService, private _activatedroute: ActivatedRoute) { }
 listeDemande: any[];
 _idSecretaire: string;

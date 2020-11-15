@@ -22,7 +22,7 @@
                 </tr>
               </thead>
               <tbody  >
-                <tr *ngFor= 'let liste of listeDemande'>
+                <tr *ngFor= 'let liste of listeDemande' >
                   <td class="text-center">
                     <div class="avatar">
                       <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
@@ -53,98 +53,6 @@
                     data-target="#exampleModal" data-whatever="@getbootstrap">Accepter</button>
                   </td>
                 </tr>
-                <tr>
-                  <td class="text-center">
-                    <div class="avatar">
-                      <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                      <span class="avatar-status badge-success"></span>
-                    </div>
-                  </td>
-                  <td>
-                    <div>Yiorgos Avraamu</div>
-                    <div class="small text-muted">
-                      <span>New</span> | Registered: Jan 1, 2015
-                    </div>
-                  </td>
-                  <td class="text-center">
-                  
-                  </td>
-                  <td class="text-center">
-                    
-                  </td>
-                  <td class="text-center">
-                    
-                  </td>
-                  <td class="text-center">
-                
-                  </td>
-                  <td class="text-center">
-                    <button type="button" class="btn btn-danger">Refuser</button>
-                    <button type="button" class="btn btn-success " data-toggle="modal"
-                    data-target="#exampleModal" data-whatever="@getbootstrap">Accepter</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <div class="avatar">
-                      <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                      <span class="avatar-status badge-success"></span>
-                    </div>
-                  </td>
-                  <td>
-                    <div>Yiorgos Avraamu</div>
-                    <div class="small text-muted">
-                      <span>New</span> | Registered: Jan 1, 2015
-                    </div>
-                  </td>
-                  <td class="text-center">
-                  
-                  </td>
-                  <td class="text-center">
-                    
-                  </td>
-                  <td class="text-center">
-                    
-                  </td>
-                  <td class="text-center">
-                
-                  </td>
-                  <td class="text-center">
-                    <button type="button" class="btn btn-danger">Refuser</button>
-                    <button type="button" class="btn btn-success">Accepter</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="text-center">
-                    <div class="avatar">
-                      <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                      <span class="avatar-status badge-success"></span>
-                    </div>
-                  </td>
-                  <td>
-                    <div>Yiorgos Avraamu</div>
-                    <div class="small text-muted">
-                      <span>New</span> | Registered: Jan 1, 2015
-                    </div>
-                  </td>
-                  <td class="text-center">
-                  test@testc.c
-                  </td>
-                  <td class="text-center">
-                    datede ngrgrr
-                  </td>
-                  <td class="text-center">
-                    23515255
-                  </td>
-                  <td class="text-center">
-                
-                  </td>
-                  <td class="text-center">
-                    <button type="button" class="btn btn-danger">Refuser</button>
-                    <button type="button" class="btn btn-success " data-toggle="modal"
-                    data-target="#exampleModal" data-whatever="@getbootstrap">Accepter</button>
-                  </td>
-                </tr>
                 
               </tbody>
             </table>
@@ -155,8 +63,8 @@
     </div><!--/.row-->
   </div>
 <app-liste-rdv></app-liste-rdv>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div  *ngFor= 'let liste of listeDemande, let i =index'>
+<div    class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -166,10 +74,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
+        <form >
+          <div *ngFor= 'let liste of listeDemande' class="form-group">
             <label for="recipient-name" class="col-form-label">Patient:</label>
-            <input type="text" class="form-control" id="recipient-name" value="{{email}}">
+            <input type="text" class="form-control" id="recipient-name" value="{{liste.email}}">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Date de Rendez vous:</label>
@@ -188,4 +96,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
