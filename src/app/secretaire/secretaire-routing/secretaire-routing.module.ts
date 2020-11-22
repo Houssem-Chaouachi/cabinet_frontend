@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ListeRdvComponent } from '../liste-rdv/liste-rdv.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DemandeRdvComponent } from '../demande-rdv/demande-rdv.component';
+import { DateRdvComponent } from '../../date-rdv/date-rdv.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,13 @@ const routes: Routes = [
           title: 'liste RDV'
         }
       },
+      {
+        path: 'date-rdv/:i',
+        component: DateRdvComponent,
+        data: {
+          title: 'date RDV'
+        }
+      }
     ]
   }
 ];

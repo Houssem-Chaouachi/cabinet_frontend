@@ -22,7 +22,7 @@
                 </tr>
               </thead>
               <tbody  >
-                <tr *ngFor= 'let liste of listeDemande' >
+                <tr *ngFor= 'let liste of listeDemande; let i=index' >
                   <td class="text-center">
                     <div class="avatar">
                       <img src="assets/img/avatars/1.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
@@ -49,52 +49,16 @@
                   </td>
                   <td class="text-center">
                     <button type="button" class="btn btn-danger">Refuser</button>
-                    <button type="button" class="btn btn-success " data-toggle="modal"
-                    data-target="#exampleModal" data-whatever="@getbootstrap">Accepter</button>
+                    <button type="button" class="btn btn-success " 
+                    [routerLink]="['/secretaire/date-rdv', i]" >Accepter</button>
                   </td>
-                </tr>
-                
+                </tr>                
               </tbody>
-            </table>
-   
+            </table>   
           </div>
         </div>
       </div><!--/.col-->
     </div><!--/.row-->
   </div>
 <app-liste-rdv></app-liste-rdv>
-<div  *ngFor= 'let liste of listeDemande, let i =index'>
-<div    class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirmez le Rendez vous</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form >
-          <div *ngFor= 'let liste of listeDemande' class="form-group">
-            <label for="recipient-name" class="col-form-label">Patient:</label>
-            <input type="text" class="form-control" id="recipient-name" value="{{liste.email}}">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Date de Rendez vous:</label>
-            <input type="date" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Heure:</label>
-            <input type="time" class="form-control"  >
-          </div>
-         
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+<!-- <app-date-rdv></app-date-rdv> -->

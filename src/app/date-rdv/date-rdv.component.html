@@ -1,0 +1,23 @@
+
+                <form [formGroup]='rdvPatien'>
+                    <div  class="form-group">
+                        <label for="recipient-name" class="col-form-label">Patient:</label>
+                        <input type="text" class="form-control" formControlName='email' id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Date de Rendez vous:</label>
+                        <input type="date" formControlName='day' class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Heure:</label>
+                        <input type="time" formControlName='hour' class="form-control">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send message</button>
+            </div>
+     
+   

@@ -49,8 +49,9 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     LoginPatientsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+  
   ],
   providers: [{
     provide: LocationStrategy,

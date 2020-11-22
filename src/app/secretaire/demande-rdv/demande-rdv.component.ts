@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GererRdvService } from '../../service/gerer-rdv.service';
+import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-demande-rdv',
@@ -8,7 +9,6 @@ import { GererRdvService } from '../../service/gerer-rdv.service';
   styleUrls: ['./demande-rdv.component.css']
 })
 export class DemandeRdvComponent implements OnInit {
-email: String = 'houssem@gmail.com';
 index: number;
   constructor(private gérerRv: GererRdvService, private _activatedroute: ActivatedRoute) { }
 listeDemande: any[];
@@ -25,5 +25,8 @@ _idSecretaire: string;
         console.log('patientsloooooo:', this.listeDemande);
       });
   }
+  sendMail(data){
+    console.log(data);
 
+  }
   }
