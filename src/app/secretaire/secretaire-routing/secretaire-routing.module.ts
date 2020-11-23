@@ -16,17 +16,17 @@ const routes: Routes = [
         redirectTo: 'demande-rdv'
       },
       {
-        path: 'demande-rdv/:id',
-        component: DemandeRdvComponent,
-        data: {
-          title: 'demande RDV'
-        }
-      },
-      {
         path: 'liste-rdv',
         component: ListeRdvComponent,
         data: {
           title: 'liste RDV'
+        }
+      },
+      {
+        path: 'demande-rdv/:id',
+        component: DemandeRdvComponent,
+        data: {
+          title: 'demande RDV'
         }
       },
       {
