@@ -5,7 +5,6 @@ import { AuthService } from '../../service/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { GererRdvService } from '../../service/gerer-rdv.service';
-import { Secretaires } from '../../models/secretaires.model';
 import jwt_decode from 'jwt-decode';
 
 @Component({

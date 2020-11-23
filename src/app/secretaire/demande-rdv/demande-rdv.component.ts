@@ -25,8 +25,4 @@ _idSecretaire: string;
         console.log('patientsloooooo:', this.listeDemande);
       });
   }
-  sendMail(data){
-    console.log(data);
-
-  }
   }

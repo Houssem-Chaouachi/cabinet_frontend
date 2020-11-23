@@ -16,7 +16,8 @@ export class GererRdvService {
 getpatients(id: string) {
   return this.webReqService.get(`secretaires/${id}`);
 }
-sendMail(id: string, data: object) {
-  return this.webReqService.post(`send-Rdv-time/${id}`, data);
+sendMail( data: object) {
+  return this.webReqService.post(`send-Rdv-time`, data);
 }
+
 }

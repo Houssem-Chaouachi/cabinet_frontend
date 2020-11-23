@@ -88,7 +88,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     LoginPatientsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-  
+
   ],
   providers: [{
     provide: LocationStrategy,
