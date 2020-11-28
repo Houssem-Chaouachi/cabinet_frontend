@@ -35,6 +35,13 @@ const routes: Routes = [
         data: {
           title: 'date RDV'
         }
+      },
+      {
+        path: 'update/:i',
+        component: DateRdvComponent,
+        data: {
+          title: 'update RDV'
+        }
       }
     ]
   }
