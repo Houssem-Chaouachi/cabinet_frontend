@@ -37,7 +37,7 @@ export class LoginComponent {
     this.auth.loginSecretaires(this.loginSecretaires.value).subscribe((res: any) => {
 
           localStorage.setItem('efgh', res.token);
-        this.router.navigateByUrl(`/secretaire/demande-rdv/${res.id}`);
+        this.router.navigateByUrl(`/secretaire/demande-rdv`);
         console.log(res.id);
 
 if (!res.id) {

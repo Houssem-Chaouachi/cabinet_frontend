@@ -10,11 +10,14 @@ export class GererRdvService {
   getListSecretaires() {
     return this.webReqService.get('secretaires');
   }
-  demanderRdv(idSecretaire: string, idpatients: string, data: object) {
-    return this.webReqService.post(`secretaires/affect-patients-to-secretaire/${idSecretaire}/${idpatients}`, data);
+  demanderRdv( idpatients: string, data: object) {
+    return this.webReqService.post(`secretaires/affect-patients-to-secretaire/${idpatients}`, data);
   }
-getpatients(id: string) {
-  return this.webReqService.get(`secretaires/${id}`);
+  deleteRDV(idpatients:string) {
+    return this.webReqService.delete(`secretaires/remove-patients-from-secretaire/${idpatients}`)
+  }
+getpatients() {
+  return this.webReqService.get(`secretaires`);
 }
 sendMail( data: object) {
   return this.webReqService.post(`send-Rdv-time`, data);

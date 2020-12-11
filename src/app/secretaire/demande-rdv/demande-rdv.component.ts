@@ -20,7 +20,7 @@ _idSecretaire: string;
      console.log('idSec', this._idSecretaire);
 
     // });
-      this.gérerRv.getpatients(this._idSecretaire).subscribe((liste: any[]) => {
+      this.gérerRv.getpatients().subscribe((liste: any[]) => {
         this.listeDemande = liste;
         console.log('patientsloooooo:', this.listeDemande);
       });

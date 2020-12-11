@@ -42,9 +42,9 @@ export class LoginPatientsComponent implements OnInit {
         localStorage.setItem('abcd', res);
         this.router.navigateByUrl(`/dashboard/${res.id}`);
          this.idpatients = res.id;
-        //  if (!res.id) {
-        //   localStorage.removeItem('abcd')
-        //  }
+         if (!res.id) {
+          localStorage.removeItem('abcd')
+         }
         });
   }
 }

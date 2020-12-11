@@ -378,7 +378,7 @@ export class DashboardComponent implements OnInit {
 
 
 listeSecretaires: any[];
-_idSecretaires;
+connectingPatient;
 
 
 constructor(private gérerRv: GererRdvService, private auth: AuthService,
@@ -386,22 +386,23 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
 
   ngOnInit(): void {
     this._activatedroute.params.subscribe((paramsP: Params) => {
-      this._idSecretaires = paramsP;
-      console.log( 'yo', paramsP);
-
-
+      this.connectingPatient = paramsP;
+      this.connectingPatient = this._activatedroute.snapshot.paramMap.get('idsecretaire')
+      console.log( 'yo', this.connectingPatient);
     });
     // generate random values for mainChart
     this.gérerRv.getListSecretaires().subscribe((liste: any[]) => {
       this.listeSecretaires = liste;
 
-      console.log('secretaires:', this.listeSecretaires);
+      console.log('secretaires', this.listeSecretaires);
     });
     }
-    // demandeRdv(idSecretaire, data) {
-    //   this.gérerRv.demanderRdv(idSecretaire, this._idSecretaires, data).subscribe(
-    //     (res: any) => {
-    //     console.log('Hi', res.id);
-    //   });
-    // }
+    demandeRdv(data){
+       this.gérerRv.demanderRdv(this.connectingPatient, data).subscribe(
+        //  idpatients = this.connectingPatient
+         (res:any) => {
+           console.log('function demande Rdv', res);
+         }
+       )
+    }
   }
