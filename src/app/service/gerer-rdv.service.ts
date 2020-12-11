@@ -17,7 +17,7 @@ export class GererRdvService {
     return this.webReqService.delete(`secretaires/remove-patients-from-secretaire/${idpatients}`)
   }
 getpatients() {
-  return this.webReqService.get(`secretaires`);
+  return this.webReqService.get(`secretaires/request-from-patients`);
 }
 sendMail( data: object) {
   return this.webReqService.post(`send-Rdv-time`, data);

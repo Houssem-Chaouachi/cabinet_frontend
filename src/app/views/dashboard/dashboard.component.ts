@@ -5,7 +5,11 @@ import { AuthService } from '../../service/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { GererRdvService } from '../../service/gerer-rdv.service';
+import { ToastrService } from 'ngx-toastr';
 import jwt_decode from 'jwt-decode';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
+
 
 @Component({
   templateUrl: 'dashboard.component.html'
@@ -236,7 +240,11 @@ export class DashboardComponent implements OnInit {
     }
   ];
   /* tslint:disable:max-line-length */
-  public mainChartLabels: Array<any> = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  public mainChartLabels: Array<any> = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+   'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+     'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+     
   /* tslint:enable:max-line-length */
   public mainChartOptions: any = {
     tooltips: {
@@ -376,20 +384,26 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
+ 
+  
 
 listeSecretaires: any[];
 connectingPatient;
 
 
 constructor(private gérerRv: GererRdvService, private auth: AuthService,
-  private router: Router, private _activatedroute: ActivatedRoute) {}
+  private router: Router, private _activatedroute: ActivatedRoute,
+   private toastr: ToastrService,
+   ) {}
 
   ngOnInit(): void {
+    
     this._activatedroute.params.subscribe((paramsP: Params) => {
       this.connectingPatient = paramsP;
       this.connectingPatient = this._activatedroute.snapshot.paramMap.get('idsecretaire')
       console.log( 'yo', this.connectingPatient);
     });
+    
     // generate random values for mainChart
     this.gérerRv.getListSecretaires().subscribe((liste: any[]) => {
       this.listeSecretaires = liste;
@@ -401,8 +415,14 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
        this.gérerRv.demanderRdv(this.connectingPatient, data).subscribe(
         //  idpatients = this.connectingPatient
          (res:any) => {
-           console.log('function demande Rdv', res);
-         }
-       )
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+        )
+      }
     }
-  }
