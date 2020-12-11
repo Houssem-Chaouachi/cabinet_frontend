@@ -39,18 +39,18 @@
                   <div>{{liste.email}} </div>
                   </td>
                   <td class="text-center">
+                    <div>{{liste.nom}} {{liste.prenom}} </div>
+                  </td>
+                  <td class="text-center">
                     <div>{{liste.dateDeNaissance}} </div>
                   </td>
                   <td class="text-center">
-                    
+                    <div>{{liste.CNSS}} </div>
                   </td>
                   <td class="text-center">
-                
-                  </td>
-                  <td class="text-center">
-                    <button type="button" class="btn btn-danger">Refuser</button>
+                    <button type="button" (click)='refuseRdv(i, liste._id)' class="btn btn-danger">Refuser</button>
                     <button type="button" class="btn btn-success " 
-                    [routerLink]="['/secretaire/date-rdv', i]" >Accepter</button>
+                    [routerLink]="['/secretaire/date-rdv', liste._id]" >Accepter</button>
                   </td>
                 </tr>                
               </tbody>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GererRdvService } from '../service/gerer-rdv.service';
 
@@ -11,16 +11,17 @@ import { GererRdvService } from '../service/gerer-rdv.service';
 export class DateRdvComponent implements OnInit {
   rdvPatien: FormGroup;
   index;
+  selectedPatient;
   successMessage: string;
   errorMessage: string;
-  constructor(private formBuilder: FormBuilder, private _Activatedroute: ActivatedRoute, private gererRdv: GererRdvService) { }
+  constructor( private _Activatedroute: ActivatedRoute, private gererRdv: GererRdvService) { }
 
   ngOnInit(): void {
     this.index = this._Activatedroute.snapshot.paramMap.get('i');
-   this.rdvPatien = this.formBuilder.group({
-     email: [ '', [Validators.required, Validators.email]],
-     day: ['', [Validators.required]],
-     hour: ['', [Validators.required]]
+   this.rdvPatien = new FormGroup ({
+     email: new FormControl('', [Validators.required, Validators.email]),
+     day: new FormControl('', [Validators.required]),
+     hour: new FormControl('', [Validators.required])
    });
   }
 sendMail() {

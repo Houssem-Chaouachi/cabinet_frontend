@@ -12,6 +12,7 @@ export class ListeRdvComponent implements OnInit {
   constructor(private gererRdv: GererRdvService) { }
 
   ngOnInit(): void {
+
    this.gererRdv.getRdv().subscribe((liste: []) => {
      this.acceptedPatients = liste;
      console.log('accepted Pattient', this.acceptedPatients);
@@ -19,7 +20,7 @@ export class ListeRdvComponent implements OnInit {
    });
   }
  deletePatient(i, id) {
-   this.gererRdv.deleteRdv(id).subscribe(() => {
+   this.gererRdv.deleteRdvAccepted(id).subscribe(() => {
      this.acceptedPatients.slice(i, 1);
    });
  }

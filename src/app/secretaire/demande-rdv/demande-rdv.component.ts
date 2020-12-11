@@ -14,7 +14,7 @@ index: number;
 listeDemande: any[];
 _idSecretaire: string;
   ngOnInit(): void {
-    // this._activatedroute.params.subscribe((paramS: Params) => {
+
       this._idSecretaire = this._activatedroute.snapshot.paramMap.get('id');
       // console.log( 'haha', paramS);
      console.log('idSec', this._idSecretaire);
@@ -24,5 +24,11 @@ _idSecretaire: string;
         this.listeDemande = liste;
         console.log('patientsloooooo:', this.listeDemande);
       });
+  }
+  refuseRdv(i, id){
+    this.gérerRv.refuseRDV(id).subscribe(() => {
+this.listeDemande.splice(i, 1);
+
+    })
   }
   }
