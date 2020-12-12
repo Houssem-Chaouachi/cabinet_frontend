@@ -22,13 +22,13 @@ constructor(private auth: AuthService, private router: Router) {
     this.sidebarMinimized = e;
   }
   logout() {
-    localStorage.removeItem('abcd');
+    localStorage.removeItem('token');
     this.auth.logoutPatient();
     this.router.navigate(['/login-Patients']);
 
   }
   logoutSecretaire() {
-    localStorage.removeItem('efgh');
+    localStorage.removeItem('token');
     this.auth.logoutSecretaire();
     this.router.navigate(['/login-secretaires']);
   }

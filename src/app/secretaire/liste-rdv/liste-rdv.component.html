@@ -37,7 +37,7 @@
                   </td>
                   <td class="text-center">
                     <button type="button" class="btn btn-danger" (click)= "deletePatient(i, patient._id)">Supprimer</button>
-                    <button type="button" class="btn btn-warning" [routerLink]="['/secretaire/update', i]">Modifier</button>
+                    <button type="button" class="btn btn-warning" [routerLink]="['/secretaire/update', patient._id]">Modifier</button>
                   </td>
                 </tr>
                 

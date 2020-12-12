@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WebRequestService } from './web-request.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  tokenPatient = localStorage.getItem('abcd');
+  tokenPatient = localStorage.getItem('token');
   isLoginPatient = new BehaviorSubject<boolean>(this.patientHastoken());
   isLoginSecretaire = new BehaviorSubject<boolean> (this.secretaireHastoken());
   constructor(private webReqService: WebRequestService) { }
   private patientHastoken(): boolean {
-    return !!localStorage.getItem('abcd');
+    return !!localStorage.getItem('token');
   }
   public patientisAuthenticated(): boolean {
-    const token = localStorage.getItem('abcd');
+    const token = localStorage.getItem('token');
     if (token == null) {
       return false;
     }
@@ -57,5 +58,8 @@ export class AuthService {
   }
   PatientLoggedIn(): Observable<boolean> {
     return this.isLoginPatient.asObservable();
+  }
+  getToken() {
+    return localStorage.getItem('efgh');
   }
 }

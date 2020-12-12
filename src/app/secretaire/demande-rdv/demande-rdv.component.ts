@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GererRdvService } from '../../service/gerer-rdv.service';
 import * as jwt_decode from 'jwt-decode';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-demande-rdv',
@@ -27,8 +28,24 @@ _idSecretaire: string;
   }
   refuseRdv(i, id){
     this.gérerRv.refuseRDV(id).subscribe(() => {
-this.listeDemande.splice(i, 1);
 
-    })
+Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    this.listeDemande.splice(i, 1);
+    Swal.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )}
+});
+    });
   }
   }

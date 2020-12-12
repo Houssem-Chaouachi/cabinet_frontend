@@ -403,7 +403,6 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
       this.connectingPatient = this._activatedroute.snapshot.paramMap.get('idsecretaire')
       console.log( 'yo', this.connectingPatient);
     });
-    
     // generate random values for mainChart
     this.gérerRv.getListSecretaires().subscribe((liste: any[]) => {
       this.listeSecretaires = liste;
@@ -414,15 +413,14 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
     demandeRdv(data){
        this.gérerRv.demanderRdv(this.connectingPatient, data).subscribe(
         //  idpatients = this.connectingPatient
-         (res:any) => {
+        (res:any) => {
           Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Your work has been saved',
             showConfirmButton: false,
             timer: 1500
-          })
-        }
-        )
+          });
+        });
       }
     }

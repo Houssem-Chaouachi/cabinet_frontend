@@ -39,11 +39,11 @@ export class LoginPatientsComponent implements OnInit {
     this.auth.loginPatients(this.LoginPatients.value).subscribe(
       (res: any) => {
         console.log(res.id);
-        localStorage.setItem('abcd', res);
+        localStorage.setItem('token', res.token);
         this.router.navigateByUrl(`/dashboard/${res.id}`);
          this.idpatients = res.id;
          if (!res.id) {
-          localStorage.removeItem('abcd')
+          localStorage.removeItem('token')
          }
         });
   }

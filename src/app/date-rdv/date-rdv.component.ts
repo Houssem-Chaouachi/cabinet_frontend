@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GererRdvService } from '../service/gerer-rdv.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-date-rdv',
@@ -25,14 +26,31 @@ export class DateRdvComponent implements OnInit {
    });
   }
 sendMail() {
-  this.gererRdv.sendMail(this.rdvPatien.value).subscribe(data => {
-this.successMessage = 'rdv send to patient succesfully';
-  },
-  err => {
-    if (err.error.message) {
-    this.errorMessage = err.error.message;
+  if(this.rdvPatien.valid){
+    
+    this.gererRdv.sendMail(this.rdvPatien.value).subscribe(data => {
+  this.successMessage = 'rdv send to patient succesfully';
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Your work has been saved',
+    showConfirmButton: false,
+    timer: 1500
+  });
+    }
+   );
   }
+  else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+    });
   }
-  );
+  // err => {
+  //   if (err.error.message) {
+  //   this.errorMessage = err.error.message;
+  // }
+  // }
 }
 }

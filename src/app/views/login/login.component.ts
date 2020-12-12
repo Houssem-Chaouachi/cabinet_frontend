@@ -40,9 +40,7 @@ export class LoginComponent {
         this.router.navigateByUrl(`/secretaire/demande-rdv`);
         console.log(res.id);
 
-if (!res.id) {
-  localStorage.removeItem('efgh');
-}
+
 }
 
     );

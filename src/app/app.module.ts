@@ -49,9 +49,11 @@ import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { MatIconModule } from '@angular/material/icon';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
+
 
 
 
@@ -92,10 +94,12 @@ import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
     UpdateRdvComponent,
 
   ],
-  providers: [{
+  providers: [
+  {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  },
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
