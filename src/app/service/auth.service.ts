@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { WebRequestService } from './web-request.service';
+// khaleha ethika s7i7a , 3malt service 7atit fih el poste w el get, delete w put besh yjib menhom houma
 
-
+// el moshkla fel network moush yjib fel token w el ki n7el el compte secretaire matjibesh fel liste patients , t9oli inauthorazed
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +41,7 @@ export class AuthService {
     return this.webReqService.post('patients/login', patients);
   }
   loginSecretaires(secretaires: string) {
-    return this.webReqService.post('secretaires/login', secretaires);
+    return this.webReqService.post('secretaires/login', secretaires);   
   }
   getPatients() {
     return this.webReqService.get('patients');

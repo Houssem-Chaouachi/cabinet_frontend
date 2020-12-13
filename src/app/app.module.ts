@@ -53,6 +53,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
+import {  AuthInterceptor } from './interseptor';
 
 
 
@@ -99,7 +100,22 @@ import { UpdateRdvComponent } from './update-rdv/update-rdv.component';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+// inti msameha token fel localstorage ?
+// eyy wa7da msameha token w lokhra efgh
+// inti chemsameha ?
+// eyy token msameha 
+// run hakeka trah
+// ok 
+// le le la7dha lezemni nzid el token mta3 el secretaire, khater radithom el zouz esmhom token tawa 
+// aw besh nbadel el secretaire w nrani chouf m3aya el passport s7i7 ou nn
+// eyy fel postman tjii el token mta3 el secretaire ki na3ml login
+// behi e login fel front wini
