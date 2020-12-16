@@ -26,7 +26,7 @@ _idSecretaire: string;
         console.log('patientsloooooo:', this.listeDemande);
       });
   }
-  refuseRdv(i, id){
+  refuseRdv(i, id) {
     this.gérerRv.refuseRDV(id).subscribe(() => {
 
 Swal.fire({

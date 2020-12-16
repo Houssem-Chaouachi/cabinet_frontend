@@ -6,6 +6,7 @@ import { ListeRdvComponent } from '../liste-rdv/liste-rdv.component';
 import { DemandeRdvComponent } from '../demande-rdv/demande-rdv.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { DateRdvComponent } from '../../date-rdv/date-rdv.component';
+import { UpdateRdvComponent } from '../../update-rdv/update-rdv.component';
 
 
 
@@ -19,7 +20,8 @@ import { DateRdvComponent } from '../../date-rdv/date-rdv.component';
   declarations: [
     ListeRdvComponent,
     DemandeRdvComponent,
-    DateRdvComponent
+    DateRdvComponent,
+    UpdateRdvComponent
   ]
 })
 export class SecretaireModule { }

@@ -3,6 +3,7 @@ import { ListeRdvComponent } from '../liste-rdv/liste-rdv.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DemandeRdvComponent } from '../demande-rdv/demande-rdv.component';
 import { DateRdvComponent } from '../../date-rdv/date-rdv.component';
+import { UpdateRdvComponent } from '../../update-rdv/update-rdv.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'update/:i',
-        component: DateRdvComponent,
+        component: UpdateRdvComponent,
         data: {
           title: 'update RDV'
         }

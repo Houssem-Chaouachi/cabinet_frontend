@@ -92,7 +92,7 @@ import {  AuthInterceptor } from './interseptor';
     LoginPatientsComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    UpdateRdvComponent,
+ 
 
   ],
   providers: [
@@ -109,13 +109,4 @@ import {  AuthInterceptor } from './interseptor';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
-// inti msameha token fel localstorage ?
-// eyy wa7da msameha token w lokhra efgh
-// inti chemsameha ?
-// eyy token msameha 
-// run hakeka trah
-// ok 
-// le le la7dha lezemni nzid el token mta3 el secretaire, khater radithom el zouz esmhom token tawa 
-// aw besh nbadel el secretaire w nrani chouf m3aya el passport s7i7 ou nn
-// eyy fel postman tjii el token mta3 el secretaire ki na3ml login
-// behi e login fel front wini
+

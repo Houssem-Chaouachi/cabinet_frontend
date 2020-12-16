@@ -34,7 +34,7 @@ deleteRdvAccepted(id) {
   return this.webReqService.delete(`send-Rdv-time/listeRdv/${id}`);
 }
 
-updateRdv(id, body){
+updateRdv(id: string, body: object) {
   return this.webReqService.put(`send-Rdv-time/listeRdv/${id}`, body);
 }
 }

@@ -26,8 +26,8 @@ export class DateRdvComponent implements OnInit {
    });
   }
 sendMail() {
-  if(this.rdvPatien.valid){
-    
+  if (this.rdvPatien.valid) {
+
     this.gererRdv.sendMail(this.rdvPatien.value).subscribe(data => {
   this.successMessage = 'rdv send to patient succesfully';
   Swal.fire({
@@ -47,10 +47,5 @@ sendMail() {
       text: 'Something went wrong!',
     });
   }
-  // err => {
-  //   if (err.error.message) {
-  //   this.errorMessage = err.error.message;
-  // }
-  // }
 }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {  FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GererRdvService } from '../service/gerer-rdv.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
@@ -10,20 +10,20 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
   styleUrls: ['./update-rdv.component.css']
 })
 export class UpdateRdvComponent implements OnInit {
-
+  Id: string;
   updateRdvPatien: FormGroup;
-  constructor( private _Activatedroute: ActivatedRoute,  private gererRdv: GererRdvService) { }
-  Id = this._Activatedroute.snapshot.paramMap.get('i');
+  constructor(private _Activatedroute: ActivatedRoute, private router: Router, private gererRdv: GererRdvService) { }
 
   ngOnInit(): void {
+    this.Id = this._Activatedroute.snapshot.paramMap.get('i');
     this.updateRdvPatien = new FormGroup({
-      email: new FormControl( '', [Validators.required, Validators.email]),
-      day: new FormControl( '', [Validators.required]),
-      hour: new FormControl ( '', [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      day: new FormControl('', [Validators.required]),
+      hour: new FormControl('', [Validators.required])
     });
   }
- updateRdv() {
-  this.gererRdv.updateRdv( this.Id , this.updateRdvPatien.value).subscribe(
+  updateRdv() {
+    this.gererRdv.updateRdv(this.Id, this.updateRdvPatien.value).subscribe(
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -31,6 +31,7 @@ export class UpdateRdvComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
-     );
- }
+    );
+      this.router.navigateByUrl(`/secretaire/demande-rdv`);
+    }
 }
