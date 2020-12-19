@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ readonly ROOT_URL;
   BaseUrl: any;
 
   constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://localhost:3000';
+    this.ROOT_URL = environment.baseURL;
    }
   get(uri: string) {
    return  this.http.get(`${this.ROOT_URL}/${uri}`);

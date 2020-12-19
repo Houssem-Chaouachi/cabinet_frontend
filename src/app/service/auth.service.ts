@@ -23,10 +23,10 @@ export class AuthService {
 
 
   private secretaireHastoken(): boolean {
-    return !!localStorage.getItem('efgh');
+    return !!localStorage.getItem('token');
   }
   public secretaireisAuthenticated(): boolean {
-    const secretaireToken = localStorage.getItem('efgh');
+    const secretaireToken = localStorage.getItem('token');
     if (secretaireToken == null) {
       return false;
     }
@@ -59,6 +59,6 @@ export class AuthService {
     return this.isLoginPatient.asObservable();
   }
   getToken() {
-    return localStorage.getItem('efgh');
+    return localStorage.getItem('token');
   }
 }

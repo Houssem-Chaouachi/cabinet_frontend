@@ -36,9 +36,8 @@ export class LoginComponent {
   login() {
     this.auth.loginSecretaires(this.loginSecretaires.value).subscribe((res: any) => {
 
-      localStorage.setItem('efgh', res.token);
+      localStorage.setItem('token', res.token);
       this.router.navigateByUrl(`/secretaire/demande-rdv`);
-      console.log('hhhhhhh', res.token);
     }
 
     );

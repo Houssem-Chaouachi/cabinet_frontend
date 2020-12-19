@@ -244,7 +244,7 @@ export class DashboardComponent implements OnInit {
    'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
      'Monday', 'Thursday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-     
+
   /* tslint:enable:max-line-length */
   public mainChartOptions: any = {
     tooltips: {
@@ -397,7 +397,7 @@ constructor(private gérerRv: GererRdvService, private auth: AuthService,
    ) {}
 
   ngOnInit(): void {
-    
+
     this._activatedroute.params.subscribe((paramsP: Params) => {
       this.connectingPatient = paramsP;
       this.connectingPatient = this._activatedroute.snapshot.paramMap.get('idsecretaire')

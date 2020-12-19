@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
       req: HttpRequest<any>,
       next: HttpHandler
     ): Observable<HttpEvent<any>> {
-      const token = localStorage.getItem('efgh') || localStorage.getItem('token');
+      const token = localStorage.getItem('token');
 
       // tslint:disable-next-line: triple-equals
       if (token != null && token != undefined) {

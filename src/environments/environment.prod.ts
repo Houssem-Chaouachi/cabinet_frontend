@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseURL : 'http://www.myapp.com:3000'
 };
