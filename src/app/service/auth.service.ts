@@ -23,10 +23,10 @@ export class AuthService {
 
 
   private secretaireHastoken(): boolean {
-    return !!localStorage.getItem('token');
+    return !!localStorage.getItem('efgh');
   }
   public secretaireisAuthenticated(): boolean {
-    const secretaireToken = localStorage.getItem('token');
+    const secretaireToken = localStorage.getItem('efgh');
     if (secretaireToken == null) {
       return false;
     }

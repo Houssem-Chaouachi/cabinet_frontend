@@ -12,16 +12,27 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 export class UpdateRdvComponent implements OnInit {
   Id: string;
   updateRdvPatien: FormGroup;
+  patientDetails:object;
   constructor(private _Activatedroute: ActivatedRoute, private router: Router, private gererRdv: GererRdvService) { }
 
   ngOnInit(): void {
     this.Id = this._Activatedroute.snapshot.paramMap.get('i');
     this.updateRdvPatien = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl( this.patientDetails , [Validators.required, Validators.email]),
       day: new FormControl('', [Validators.required]),
       hour: new FormControl('', [Validators.required])
     });
+    
+    this.gererRdv.getRdvById(this.Id).subscribe((data)=>{
+        this.patientDetails = data;
+        console.log(this.patientDetails,'patients details');
+        console.log(this.Id,'id details');
+  
+      })
+    
+    
   }
+  
   updateRdv() {
     this.gererRdv.updateRdv(this.Id, this.updateRdvPatien.value).subscribe(
     Swal.fire({

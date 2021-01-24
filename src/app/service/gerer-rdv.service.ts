@@ -29,6 +29,9 @@ sendMail( data: object) {
 getRdv() {
   return this.webReqService.get('send-Rdv-time/listeRdv');
 }
+getRdvById(id){
+  return this.webReqService.get(`send-Rdv-time/listeRdv/${id}`)
+}
 
 deleteRdvAccepted(id) {
   return this.webReqService.delete(`send-Rdv-time/listeRdv/${id}`);
