@@ -24,7 +24,7 @@ export class UpdateRdvComponent implements OnInit {
     });
     
     this.gererRdv.getRdvById(this.Id).subscribe((data)=>{
-        this.patientDetails = data;
+        this.updateRdvPatien.patchValue(data);
         console.log(this.patientDetails,'patients details');
         console.log(this.Id,'id details');
   
